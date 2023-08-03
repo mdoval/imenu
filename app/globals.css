@@ -34,3 +34,7 @@ html {
 body {
   @apply h-full w-full
 }
+
+.prueba {
+  @apply bg-red-300
+}
