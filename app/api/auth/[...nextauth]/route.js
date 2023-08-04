@@ -4,7 +4,7 @@ import Auth0Provider from "next-auth/providers/auth0";
 
 const handler = NextAuth({
     providers: [
-        CredentialsProvider({
+       /* CredentialsProvider({
           name: 'Credentials',
           credentials: {
             username: { label: "Username", type: "email", placeholder: "jsmith" },
@@ -14,7 +14,7 @@ const handler = NextAuth({
             const user = {id: "1", nombre: "martincho", email: "martincho@nubecosmica.com.ar"}
             return user
           }
-        }),
+        }),*/
         Auth0Provider({
           clientId: process.env.AUTH0_CLIENT_ID,
           clientSecret: process.env.AUTH0_CLIENT_SECRET,
