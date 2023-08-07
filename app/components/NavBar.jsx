@@ -5,6 +5,7 @@ import UserNavBarIcon from './UserNavBarIcon'
 import { useSession } from "next-auth/react"
 import BotonLogin from './BotonLogin'
 import Link from 'next/link'
+import Spinner from './Spinner'
 
 export default function NavBar() {
     const { data: session, status } = useSession()

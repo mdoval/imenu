@@ -1,4 +1,5 @@
 import BotonLogin from "./components/BotonLogin";
+import Spinner from "./components/Spinner";
 import UserProfile from "./components/UserProfile";
 
 export default function Home() {
