@@ -1,6 +1,7 @@
 'use client'
 
 import { useSession } from "next-auth/react"
+import BotonLogout from "./BotonLogout"
 
 export default function UserNavBarIcon() {
     const { data: session, status } = useSession()
@@ -11,6 +12,7 @@ export default function UserNavBarIcon() {
     return (
         <div>
              <img className="inline-block rounded-full ring-2 ring-white" height={56} width={56} src={imageSrc} alt=""/>
+             <BotonLogout />
         </div>
     )
 }
