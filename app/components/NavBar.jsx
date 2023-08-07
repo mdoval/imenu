@@ -1,9 +1,14 @@
 'use client'
 
 import Image from 'next/image'
-import LoginButton from './LoginButton'
+import UserNavBarIcon from './UserNavBarIcon'
+import { useSession } from "next-auth/react"
+import BotonLogin from './BotonLogin'
+import Link from 'next/link'
 
 export default function NavBar() {
+    const { data: session, status } = useSession()
+
     return (
         <nav className="flex items-center justify-between flex-wrap p-6" style={{ backgroundColor: "#4285f4" }}>
             <div className="flex items-center flex-shrink-0 text-white mr-6">
@@ -17,17 +22,17 @@ export default function NavBar() {
             </div>
             <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
                 <div className="text-sm lg:flex-grow">
-                    <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                    <Link href="/dashboard/productos" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                         Productos
-                    </a>
-                    <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                    </Link>
+                    <Link href="/dashboard/categorias" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                         Categorias
-                    </a>
-                    <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+                    </Link>
+                    <Link href="/dashboard/usuarios" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
                         Usuarios
-                    </a>
+                    </Link>
                 </div>
-                <LoginButton />
+                {status === 'authenticated' ?  <UserNavBarIcon /> : <BotonLogin />}
             </div>
         </nav>
     )
