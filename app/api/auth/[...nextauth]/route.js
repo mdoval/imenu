@@ -26,6 +26,8 @@ const handler = NextAuth({
       const isAllowedToSignIn = true
       if (isAllowedToSignIn) {
         console.log("Usuario Logueado, aqui debo guardar el usuario")
+        console.log(user)
+        //Agregar el Nuevo Usuario en la base
         return true
       } else {
         console.log("Usuario No logueado o no autorizado")
