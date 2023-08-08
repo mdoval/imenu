@@ -1,24 +1,29 @@
 import NextAuth from "next-auth";
 //import CredentialsProvider from "next-auth/providers/credentials";
 import Auth0Provider from "next-auth/providers/auth0";
-import DiscordProvider from 'next-auth/providers/discord'
+import DiscordProvider from "next-auth/providers/discord";
 
 const handler = NextAuth({
   providers: [
-     Auth0Provider({
-       clientId: process.env.AUTH0_CLIENT_ID,
-       clientSecret: process.env.AUTH0_CLIENT_SECRET,
-       issuer: process.env.AUTH0_ISSUER,
-       authorization: { params: { scope: "openid email profile" } },
-     }),
-     DiscordProvider({
+    Auth0Provider({
+      clientId: process.env.AUTH0_CLIENT_ID,
+      clientSecret: process.env.AUTH0_CLIENT_SECRET,
+      issuer: process.env.AUTH0_ISSUER,
+      authorization: {
+        params: {
+          scope: "openid email profile",
+          prompt: "login",
+        },
+      },
+    }),
+    DiscordProvider({
       clientId: process.env.DISCORD_CLIENT_ID,
-      clientSecret: process.env.DISCORD_CLIENT_SECRET
-    })
-   ]
-}) 
+      clientSecret: process.env.DISCORD_CLIENT_SECRET,
+    }),
+  ],
+});
 
-export { handler as GET, handler as POST }
+export { handler as GET, handler as POST };
 
 /*
 const handler = ({
@@ -44,5 +49,4 @@ const handler = ({
 })
 
 export { handler as GET, handler as POST }
-
 */
