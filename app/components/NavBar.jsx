@@ -23,14 +23,14 @@ export default function NavBar() {
             </div>
             <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
                 <div className="text-sm lg:flex-grow">
+                    <Link href="/dashboard/bares" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                        Mis Bares
+                    </Link>
                     <Link href="/dashboard/productos" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                         Productos
                     </Link>
-                    <Link href="/dashboard/categorias" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-                        Categorias
-                    </Link>
-                    <Link href="/dashboard/usuarios" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
-                        Usuarios
+                    <Link href="/dashboard/etiquetas" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+                        Etiquetas
                     </Link>
                 </div>
                 {status === 'authenticated' ?  <UserNavBarIcon /> : <BotonLogin />}

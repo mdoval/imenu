@@ -1,12 +1,11 @@
 'use client'
 
-import { signIn, signOut, useSession } from "next-auth/react"
+import { useSession } from "next-auth/react"
 import BotonLogout from "./BotonLogout"
 import BotonLogin from "./BotonLogin"
 
 export default function UserProfile() {
     const { data: session, status } = useSession()
-    console.log(session, status)
 
     switch (status) {
         case 'loading':

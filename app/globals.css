@@ -38,3 +38,7 @@ body {
 .prueba {
   @apply bg-red-300
 }
+
+h1 {
+  @apply text-3xl font-bold
+}
