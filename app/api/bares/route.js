@@ -7,12 +7,13 @@ export async function GET(request) {
     const session = await getServerSession(authOptions) 
     console.log(session.user.email)
 
-    const bares = await prisma.bar.findMany(    {
+    const bares = await prisma.usuario.findFirst({
         where: {
-            usuarios: {
-                email: 'horacioher77@hotmail.com'
-            }
+          email: session.user.email
+        },
+        select: {
+            bares: true
         }
-    })
+      });
     return NextResponse.json(bares)
 }

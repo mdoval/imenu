@@ -33,7 +33,7 @@ export default function NavBar() {
                         Etiquetas
                     </Link>
                 </div>
-                {status === 'authenticated' ?  <UserNavBarIcon /> : <BotonLogin />}
+                <UserNavBarIcon />
             </div>
         </nav>
     )

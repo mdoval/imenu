@@ -3,13 +3,14 @@
 import { useSession } from "next-auth/react"
 import BotonLogout from "./BotonLogout"
 import BotonLogin from "./BotonLogin"
+import Spinner from "./Spinner"
 
 export default function UserProfile() {
     const { data: session, status } = useSession()
 
     switch (status) {
         case 'loading':
-            return (<div className="p-2"><h1>Cargando...</h1></div>)
+            return (<div className="p-3"><Spinner /></div>)
             break
         case 'authenticated':
             return (
@@ -20,13 +21,13 @@ export default function UserProfile() {
                 </div>)
             break
         default:
-            return (
+            return (<div className="p-3"><Spinner /></div>)
+            /*            return (
                 <div className="p-2">
                     <h1>Usuario no logueado</h1>
                     <BotonLogin />
                 </div>
-            )
+            )*/
             break
     }
-
 }
