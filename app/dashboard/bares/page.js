@@ -1,21 +1,20 @@
-async function getBares() {
-  const url = `${process.env.siteUrl}/api/bares`;
-  //console.log(url)
-  const res = await fetch(url);
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error("Failed to fetch data");
+const getData = async () => {
+  const url = `${process.env.siteUrl}/api/bares`
+  try {
+    const response = await fetch(url, { cache: "no-store" });
+    return response.json();
+  } catch (error) {
+    console.log("Error : ", error);
   }
-return res.json();
-}
+};
 
 export default async function BaresPage() {
-  const bares = await getBares();
-  console.log(bares);
+  const { bares } = await getData();
   return (
     <div>
       <h1>Mis Bares</h1>
       <hr />
+      {JSON.stringify(bares)}
     </div>
   );
 }

@@ -5,11 +5,11 @@ import { getServerSession } from "next-auth";
 
 export async function GET(request) {
     const session = await getServerSession(authOptions) 
-    console.log(session.user.email)
+    console.log(session?.user.email)
 
     const bares = await prisma.usuario.findFirst({
         where: {
-          email: session.user.email
+          email: session?.user.email
         },
         select: {
             bares: true
