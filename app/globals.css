@@ -1,44 +1,95 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/*
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-*/
 
 html {
-  @apply h-full w-full
+  @apply h-full w-full;
 }
 
 body {
-  @apply h-full w-full
+  @apply h-full w-full;
 }
 
 .prueba {
-  @apply bg-red-300
+  @apply bg-red-300;
 }
 
 h1 {
-  @apply text-3xl font-bold
+  @apply text-3xl font-bold;
+}
+
+.DashboardBody {
+  @apply bg-amber-50
+            h-full 
+            w-full
+            flex flex-col 
+            items-center 
+            p-10;
+}
+
+.BarCard {
+  @apply bg-white 
+          m-4 
+          p-2
+          border-2
+          shadow-md
+          rounded-2xl
+}
+
+.BarCardTitle{
+  @apply text-3xl 
+         font-bold        
+         m-4
+         w-1/5
+}
+
+.BarCardLogo{
+  @apply text-3xl 
+         font-bold        
+         m-4
+         w-full
+}
+
+.BarCardDescripcion {
+  @apply text-lg
+         m-4
+}
+
+.BarCardMapa {
+  @apply  p-2
+          w-80
+          border-2
+          shadow-md
+          rounded-2xl
+}
+
+.BarCardButton {
+  @apply bg-blue-300
+          p-2
+          m-2
+          w-48          
+          border-2
+          rounded-lg
+          flex 
+          text-center
+          align-middle
+}
+
+.BarCardButtonEliminar {
+  @apply bg-red-300
+          p-2
+          m-2
+          w-48          
+          border-2
+          rounded-lg
+          flex 
+          text-center
+          align-middle
+}
+
+/* Toggle Button */ 
+
+input:checked ~ .dot {
+  transform: translateX(100%);
+  background-color: #48bb78;
 }

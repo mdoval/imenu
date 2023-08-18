@@ -6,6 +6,7 @@ import { getServerSession } from "next-auth";
 export async function GET(request) {
     const session = await getServerSession(authOptions) 
     console.log(session?.user.email)
+//    const email = "martindoval@gmail.com"
 
     const bares = await prisma.usuario.findFirst({
         where: {
@@ -15,7 +16,5 @@ export async function GET(request) {
             bares: true
         }
       });
-     //const bares = {message: "Ingreso a Bares"}
-    return NextResponse.json(bares)
-    //return <pre>{JSON.stringify(session, null, 2)}</pre>
+      return NextResponse.json(bares)
 }

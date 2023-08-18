@@ -1,20 +1,16 @@
-const getData = async () => {
-  const url = `${process.env.siteUrl}/api/bares`
-  try {
-    const response = await fetch(url, { cache: "no-store" });
-    return response.json();
-  } catch (error) {
-    console.log("Error : ", error);
-  }
-};
+import { BarCard } from "@/app/components/Cards/BarCard";
+import { getData } from "@/helpers/getData"
 
 export default async function BaresPage() {
-  const { bares } = await getData();
+  const { bares } = await getData("http://localhost:3000/api/bares", {cache: "no-store"});
+  console.log(bares)
   return (
-    <div>
+    <div className="w-full">
       <h1>Mis Bares</h1>
       <hr />
-      {JSON.stringify(bares)}
+      {bares.map((bar) => {
+        return(<BarCard id={bar.id} nombre={bar.nombre} urlLogo={bar.logo} />)
+      })}      
     </div>
   );
 }

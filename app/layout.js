@@ -10,7 +10,7 @@ export const metadata = {
   description: "iMenu ",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children, session }) {
   return (
     <html lang="en">
       <body>
