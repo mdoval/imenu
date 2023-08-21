@@ -15,7 +15,9 @@ export default async function BaresPage() {
         <hr />
         <div className="flex flex-col items-center m-5">
           <div>
-            <span className="text-2xl">Usted no posee Bares aun, desea crear uno?</span>
+            <span className="text-2xl">
+              Usted no posee Bares aun, desea crear uno?
+            </span>
           </div>
           <div className="p-2">
             <BotonNuevoBar />
@@ -26,7 +28,10 @@ export default async function BaresPage() {
   } else {
     return (
       <div className="w-full">
-        <h1>Mis Bares</h1>
+        <div className="w-full flex items-center">
+          <h1>Mis Bares</h1>
+          <BotonNuevoBar />
+        </div>
         <hr />
         {bares.map((bar) => {
           return <BarCard id={bar.id} nombre={bar.nombre} urlLogo={bar.logo} />;

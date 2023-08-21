@@ -1,6 +1,7 @@
 "use client";
 
 import BotonSubmit from "@/app/components/Buttons/BotonSubmit";
+import { addData } from "@/helpers/addData";
 import { useFormik } from "formik";
 
 export default function NewBarPage() {
@@ -9,8 +10,10 @@ export default function NewBarPage() {
       nombre: "",
       logo: "/images/no-foto.png",
     },
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       alert(JSON.stringify(values, null, 2));
+      const newBar = await addData('http://localhost:3000/api/bares/add', {method: 'POST', body: JSON.stringify(values)})
+      alert(JSON.stringify(newBar, null, 2));
     },
   });
 
@@ -22,8 +25,8 @@ export default function NewBarPage() {
         <div>
           <form onSubmit={formik.handleSubmit}>
             <div className=" w-1/3">
-              <label class="block m-2 w-full">
-                <span class="block text-sm font-medium text-slate-700 m-1">
+              <label className="block m-2 w-full">
+                <span className="block text-sm font-medium text-slate-700 m-1">
                   Nombre
                 </span>
                 <input
@@ -34,8 +37,8 @@ export default function NewBarPage() {
                   value={formik.values.nombre}
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline m-1"
                 />
-                <p class="mt-2 invisible peer-invalid:visible text-pink-600 text-sm">
-                  Please provide a valid email address.
+                <p className="mt-2 invisible peer-invalid:visible text-pink-600 text-sm">
+                  Por favor ingrese un nombre valido
                 </p>
               </label>
             </div>
