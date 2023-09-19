@@ -3,15 +3,15 @@ import BotonEditarBar from '../Buttons/BotonEditarBar'
 import BotonEliminarBar from '../Buttons/BotonEliminarBar'
 
 export function BarCard(props) {
-    const { nombre, urlLogo } = props
-    console.log(nombre)
-    console.log(urlLogo)
+    const { nombre, urlLogo, descripcion } = props
+    //console.log(nombre)
+    //console.log(urlLogo)
     return (
         <div className="BarCard">
             <div className='flex items-center'>
-                <div className="BarCardTitle"><span>Bar Reggio</span></div>
+                <div className="BarCardTitle"><span>{nombre}</span></div>
                 <div className='BarCardLogo'>
-                    <Image src="/images/regio_logo.jpg" alt='Regio Logo' width={100} height={100} />
+                    <Image src={urlLogo} alt='Regio Logo' width={100} height={100} />
                 </div>
             </div>
             <hr />
@@ -23,7 +23,7 @@ export function BarCard(props) {
                     <BotonEliminarBar />
                 </div>
             </div>
-            <div className="BarCardDescripcion">Bar ubicado en la provincia de misiones, con excelentes tragos de author</div>
+            <div className="BarCardDescripcion">{descripcion}</div>
             <div className='p-4'>
                 <div className="flex items-center w-full mb-12">
                     <label className="flex items-center cursor-pointer">

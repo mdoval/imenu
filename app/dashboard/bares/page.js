@@ -34,7 +34,7 @@ export default async function BaresPage() {
         </div>
         <hr />
         {bares.map((bar) => {
-          return <BarCard id={bar.id} nombre={bar.nombre} urlLogo={bar.logo} />;
+          return <BarCard id={bar.id} nombre={bar.nombre} urlLogo={bar.logo} descripcion={bar.descripcion} />;
         })}
       </div>
     );

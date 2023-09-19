@@ -11,17 +11,17 @@ model etiquetatoproducto {
   A Int
   B Int
 
-  @@unique([A, B], map: "_EtiquetaToProducto_AB_unique")
-  @@index([B], map: "_EtiquetaToProducto_B_index")
+  @@unique([A, B], map: "_etiquetaToproducto_AB_unique")
+  @@index([B], map: "_etiquetaToproducto_B_index")
   @@map("_etiquetatoproducto")
 }
 
 model etiqueta {
   id     Int    @id @default(autoincrement())
   nombre String
-  productos producto[]
-  bar         bar @relation(fields: [barId], references: [id])
-  barId       Int
+  barId  Int
+
+  @@index([barId], map: "etiqueta_barId_fkey")
 }
 
 model imagen {
@@ -35,23 +35,28 @@ model producto {
   descripcion String
   precio      Decimal
   imagen      String
-  etiqueta    etiqueta[]
-  bar         bar @relation(fields: [barId], references: [id])
   barId       Int
 
+  @@index([barId], map: "producto_barId_fkey")
 }
 
 model usuario {
   id    Int    @id @default(autoincrement())
   email String @db.VarChar(255)
-  bares bar[]
 }
 
 model bar {
-  id     Int    @id @default(autoincrement())
-  nombre String @db.VarChar(255)
-  logo   String @db.VarChar(255)
-  usuarios usuario[]
-  productos producto[]
-  etiquetas etiqueta[]
+  id          Int    @id @default(autoincrement())
+  nombre      String @db.VarChar(255)
+  logo        String @db.VarChar(255)
+  descripcion String @db.Text
+}
+
+model bartousuario {
+  A Int
+  B Int
+
+  @@unique([A, B], map: "_barTousuario_AB_unique")
+  @@index([B], map: "_barTousuario_B_index")
+  @@map("_bartousuario")
 }
